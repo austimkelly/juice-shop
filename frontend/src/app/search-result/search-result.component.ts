@@ -148,6 +148,7 @@ export class SearchResultComponent implements OnDestroy, AfterViewInit {
         this.io.socket().emit('verifyLocalXssChallenge', queryParam)
       }) // vuln-code-snippet hide-end
       this.dataSource.filter = queryParam.toLowerCase()
+      # The proper fix would go here for the DOM XSS Coding Challenge
       this.searchValue = this.sanitizer.bypassSecurityTrustHtml(queryParam) // vuln-code-snippet vuln-line localXssChallenge xssBonusChallenge
       this.gridDataSource.subscribe((result: any) => {
         if (result.length === 0) {
