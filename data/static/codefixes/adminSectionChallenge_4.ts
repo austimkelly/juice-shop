@@ -1,5 +1,6 @@
 const routes: Routes = [
   {
+  // fix me! admininstration path exposed to non-admins
     path: 'administration',
     component: AdministrationComponent,
     canActivate: [LoginGuard]
