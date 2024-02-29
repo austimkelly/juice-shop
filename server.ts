@@ -245,6 +245,7 @@ restoreOverwrittenFilesWithOriginals().then(() => {
   }
 
   // vuln-code-snippet start directoryListingChallenge accessLogDisclosureChallenge
+  // FIXME: sensitve doc exposure goes here
   /* /ftp directory browsing and file download */ // vuln-code-snippet neutral-line directoryListingChallenge
   app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true })) // vuln-code-snippet vuln-line directoryListingChallenge
   app.use('/ftp(?!/quarantine)/:file', fileServer()) // vuln-code-snippet vuln-line directoryListingChallenge
@@ -675,6 +676,7 @@ logger.info(`Entity models ${colors.bold(Object.keys(sequelize.models).length.to
 let metricsUpdateLoop: any
 const Metrics = metrics.observeMetrics() // vuln-code-snippet neutral-line exposedMetricsChallenge
 const customizeEasterEgg = require('./lib/startup/customizeEasterEgg') // vuln-code-snippet hide-line
+# Exposed metrics solution goes here
 app.get('/metrics', metrics.serveMetrics()) // vuln-code-snippet vuln-line exposedMetricsChallenge
 errorhandler.title = `${config.get('application.name')} (Express ${utils.version('express')})`
 
