@@ -74,6 +74,7 @@ const UserModelInit = (sequelize: Sequelize) => { // vuln-code-snippet start wea
       password: {
         type: DataTypes.STRING,
         set (clearTextPassword) {
+          // clear text and simple password
           this.setDataValue('password', security.hash(clearTextPassword)) // vuln-code-snippet vuln-line weakPasswordChallenge
         }
       }, // vuln-code-snippet end weakPasswordChallenge
