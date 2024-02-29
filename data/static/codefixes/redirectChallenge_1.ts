@@ -1,4 +1,5 @@
 export const redirectAllowlist = new Set([
+  // FIX ME stale re-directs
   'https://github.com/juice-shop/juice-shop',
   'https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm',
   'https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW',
@@ -10,6 +11,7 @@ export const redirectAllowlist = new Set([
 ])
 
 export const isRedirectAllowed = (url: string) => {
+  # FIXME: URL redirect challenge goes here
   let allowed = false
   for (const allowedUrl of redirectAllowlist) {
     allowed = allowed || url.includes(encodeURI(allowedUrl))
