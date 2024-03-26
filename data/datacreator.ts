@@ -89,6 +89,7 @@ async function createChallenges () {
           tags: (tags != null) ? tags.join(',') : undefined,
           description: effectiveDisabledEnv ? (description + ' <em>(This challenge is <strong>' + (config.get('challenges.safetyOverride') ? 'potentially harmful' : 'not available') + '</strong> on ' + effectiveDisabledEnv + '!)</em>') : description,
           difficulty,
+          // this might be where the existing sqlite is ignored
           solved: false,
           hint: showHints ? hint : null,
           hintUrl: showHints ? hintUrl : null,
